@@ -1,0 +1,91 @@
+<br><br>
+    <div class="container">
+     <br><br>
+  
+        <div class="row">
+          <div class="col-md-4 order-md-2 mb-4">
+           <!-- agrego la parte de paise-->
+           <app-pais
+           (eventoCargarPais)= "cargarPaisSleccionado($event)">
+           </app-pais>
+           
+            
+
+         
+
+
+          </div>
+          <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Alta repartidor</h4>
+            <form  class="needs-validation"  [formGroup]= "formularioAlta"  (ngSubmit)= "GuardarActor()">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" class="form-control" id="nombre" placeholder="" value="" formControlName='nombre'>
+                  <small class="invalid" *ngIf="formularioAlta.get('nombre')?.errors?.required && formularioAlta.get('nombre').touched" >El nombre es requerido</small>
+                </div>
+               
+              </div>
+  
+  
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <label for="edad">Edad</label>
+                  <input type="number" class="form-control" id="edad" placeholder="edad" formControlName='edad'>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <label for="dni">Dni</label>
+                  <input type="number" class="form-control" id="dni" placeholder="dni" formControlName='dni'>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="capacidad">Capacidad</label>
+                <input type="number" class="form-control" id="capacidad" placeholder="capacidad" formControlName='capacidad'>
+              </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="unidad" formControlName='unidad'>
+                  <label for="recordar" class="form-check-label" for="unidad">
+                   Unidad Propia
+                  </label>
+                </div>
+              </div>
+
+            
+
+          
+  
+              
+              
+                <div class="col-md-5 mb-3">
+                  <label for="pais">Pais</label>
+                  <input type="text" class="form-control" id="pais" placeholder="Pais" formControlName='pais'>
+                  <small class="invalid" *ngIf="formularioAlta.get('pais')?.errors?.required && formularioAlta.get('pais').touched" >El Pais es requerido</small>
+                </div>                              
+                
+            
+             
+                        
+             
+              <hr class="mb-4">
+              <button class="btn btn-primary btn-lg btn-block" type="submit"  [disabled]="formularioAlta.invalid" >Dar de Alta</button>
+            </form>
+
+
+             <!-- Componente listado actores-->
+            <br><br>
+                   
+
+
+          </div>                 
+        </div>
+      
+
+
+  
+       
+      </div>
+

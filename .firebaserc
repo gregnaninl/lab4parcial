@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pruebalogin-54124": {
+      "hosting": {
+        "lab4parcial": [
+          "pruebalogin-54124"
+        ]
+      }
+    }
+  }
+}
