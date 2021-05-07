@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Pais } from 'src/app/clases/pais';
 import { Repartidor } from 'src/app/clases/repartidor';
+import { EmpleadosService } from 'src/app/servicio/empleados.service';
 
 import Swal from 'sweetalert2';
 
@@ -18,7 +19,7 @@ export class AltasrepartidorComponent implements OnInit {
   repartidor : Repartidor;
    
  
-  constructor(private fb: FormBuilder,) {
+  constructor(private fb: FormBuilder,private empleadoSvc : EmpleadosService) {
 
     this.repartidor= new Repartidor();
    }
@@ -51,21 +52,33 @@ export class AltasrepartidorComponent implements OnInit {
   GuardarActor(){
 
     if(this.formularioAlta.valid){  
-     // this.cargarActor();
+      this.cargarRepartidor();
       try{
-      
-     // Swal.fire('Actor Enviado','Todo subio correctamente!!','success'); 
+        this.empleadoSvc.GuardarEmpleado(this.repartidor);
+        this.formularioAlta.reset();
+      Swal.fire('Actor Enviado','Todo subio correctamente!!','success'); 
       }
       catch(e){
        
-       // Swal.fire('Algo Salio Mal!',e,'error');  
+       Swal.fire('Algo Salio Mal!',e,'error');  
       }
     }
   }
 
-  private cargarActor(){
+  private cargarRepartidor(){
     this.repartidor.nombre = this.formularioAlta.get('nombre').value;
     this.repartidor.dni= this.formularioAlta.get('dni').value;
+    this.repartidor.capacidad = this.formularioAlta.get('capacidad').value;
+    this.repartidor.edad = this.formularioAlta.get('edad').value;
+    if(this.formularioAlta.get('unidad').value =="" ){
+      this.repartidor.unidad = false;
+    }else{
+      this.repartidor.unidad = true;
+    }
+
+    
+    
+    
    
   }
 
