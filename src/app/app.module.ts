@@ -14,6 +14,10 @@ import { PaisComponent } from './page/componente/pais/pais.component';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireModule} from '@angular/fire';
 import {  environment } from './../environments/environment';
+import { RepartidoresComponent } from './page/repartidores/repartidores.component';
+import { TablaRepartidoresComponent } from './page/componente/tabla-repartidores/tabla-repartidores.component';
+import { DetalleRepartidorComponent } from './page/componente/detalle-repartidor/detalle-repartidor.component';
+import { DetallePaisComponent } from './page/componente/detalle-pais/detalle-pais.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import {  environment } from './../environments/environment';
     MenuComponent,
     InicioComponent,
     AltasrepartidorComponent,
-    PaisComponent
+    PaisComponent,
+    RepartidoresComponent,
+    TablaRepartidoresComponent,
+    DetalleRepartidorComponent,
+    DetallePaisComponent
   ],
   imports: [
     BrowserModule,

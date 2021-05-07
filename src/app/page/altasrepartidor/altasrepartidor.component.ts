@@ -56,7 +56,7 @@ export class AltasrepartidorComponent implements OnInit {
       try{
         this.empleadoSvc.GuardarEmpleado(this.repartidor);
         this.formularioAlta.reset();
-      Swal.fire('Actor Enviado','Todo subio correctamente!!','success'); 
+      Swal.fire(' Enviado','Todo subio correctamente!!','success'); 
       }
       catch(e){
        
