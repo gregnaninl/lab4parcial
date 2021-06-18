@@ -3,6 +3,9 @@
   <p>Nombre: {{ repartidorParaMostrar.nombre}}</p>
   <p>dni: {{ repartidorParaMostrar.dni}}</p>
   <p>edad: {{ repartidorParaMostrar.edad}}</p>
-  <p>cantidad: {{ prepartidorParaMostrar.capacidad}}</p>
+  <p>cantidad: {{ repartidorParaMostrar.capacidad }}</p>
+  <p *ngIf= "repartidorParaMostrar.unidad"  >vehiculo: Propio</p>
+  <p *ngIf= "!repartidorParaMostrar.unidad"  >vehiculo: Sin vehiculo</p>
+
   
   </div>

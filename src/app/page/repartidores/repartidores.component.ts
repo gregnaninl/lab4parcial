@@ -23,6 +23,7 @@ export class RepartidoresComponent implements OnInit {
   CargarRepartidor(repartidor : Repartidor){
     this.repartidorElegido= repartidor;
     this.paisReaprtidor= repartidor.pais;
+    console.log(this.repartidorElegido);
   }
 
   trarTodo(){

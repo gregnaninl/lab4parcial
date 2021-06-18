@@ -1,45 +1,41 @@
-
-  <main role="main">
-    <br>
-
-    <app-tabla-repartidores 
-        [listado]="listadoDeTablaRepartidores"
-    (eventoRepartidor)= "CargarRepartidor($event)"
-
-        ></app-tabla-repartidores>
-
-
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-       <div class="col-md-4">
-        <app-detalle-repartidor
+  
+  <main>
+    <div class="container py-4">
+      
+  
+      <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+          <app-tabla-repartidores 
+          [listado]="listadoDeTablaRepartidores"
+           (eventoRepartidor)= "CargarRepartidor($event)"
+  
+          ></app-tabla-repartidores>
+  
+        
+        </div>
+      </div>
+  
+      <div class="row align-items-md-stretch align-items-center text-center" >
+        <div class="col-md-6" *ngIf="repartidorElegido">
+          <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <app-detalle-repartidor
         [repartidorParaMostrar]= "repartidorElegido"
         >
-
-
         </app-detalle-repartidor>
-         </div>
-    
-
-        <div class="col-md-6">
-          <h2></h2>
-       
-        <!-- agrego la parte de actores
+          </div>
+        </div>
+        <div class="col-md-6" *ngIf="paisReaprtidor">
+          <div class="h-100 p-5 bg-light border rounded-3">
+             <!-- agrego la parte de actores-->
       <app-detalle-pais
       [paisParaMostrar]="paisReaprtidor"
       >
 
-      </app-detalle-pais>-->
-
-         
-          
-                
+      </app-detalle-pais>
+          </div>
         </div>
       </div>
-
-
-    </div> <!-- /container -->
-
+  
+     
+    </div>
   </main>
-
