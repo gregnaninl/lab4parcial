@@ -1,0 +1,24 @@
+<div class="row align-items-md-stretch align-items-center text-center" *ngIf= "pedidoParaMostrar.repartidor"  >
+    <div class="col-md-6" >
+      <div class="h-100 p-5 text-white bg-dark rounded-3">
+<h2>Detalle Pedido</h2>
+<div  >
+  <p>Repartidor: {{ pedidoParaMostrar.repartidor.nombre}}</p>
+  <p>Capacidad: {{ pedidoParaMostrar.repartidor.capacidad}}</p>
+  <div *ngIf= "pedidoParaMostrar.pizzas">
+  <ul class="countries-container list-group mb-3">
+    
+    <li *ngFor="let lista  of pedidoParaMostrar.pizzas"  >     
+       <p>1 -  {{ lista.nombre}} , ${{ lista.precio}}</p>      
+   </li>
+   
+ </ul>
+</div>
+  
+  </div>
+  <div class="input-group-append">
+    <button type="submit" class="btn btn-secondary"(click)="guardar()" >Guardar</button>
+  </div>
+</div>
+          
+</div>

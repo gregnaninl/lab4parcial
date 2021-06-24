@@ -12,6 +12,7 @@ const routes: Routes = [
   {path: 'altarepartidor' , component: AltasrepartidorComponent},
   { path: 'repartidores' , component: RepartidoresComponent},
   { path: 'piza', loadChildren: () => import('./piza/piza.module').then(m => m.PizaModule) , canActivate: [CanActivateGuard]},
+   { path: 'pedidos', loadChildren: () => import('./pedidos/pedidos.module').then(m => m.PedidosModule) },
   {path: '', redirectTo:'bienvenida',pathMatch: 'full'},
   {path: '**', component:BienvenidaComponent}
  

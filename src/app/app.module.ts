@@ -24,6 +24,9 @@ import { ModificarPizaComponent } from './page/componente/modificar-piza/modific
 import { BorrarPizaComponent } from './page/componente/borrar-piza/borrar-piza.component';
 import { ListarPizzaComponent } from './page/componente/listar-pizza/listar-pizza.component';
 import { FiltroPizzaPipe } from './pipes/filtro-pizza.pipe';
+import { GestionarPedidosComponent } from './page/pedidos/gestionar-pedidos/gestionar-pedidos.component';
+import { TablaPizzasComponent } from './page/componente/tabla-pizzas/tabla-pizzas.component';
+import { FormPedidoComponent } from './page/componente/form-pedido/form-pedido.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { FiltroPizzaPipe } from './pipes/filtro-pizza.pipe';
     ModificarPizaComponent,
     BorrarPizaComponent,
     ListarPizzaComponent,
-    FiltroPizzaPipe
+    FiltroPizzaPipe,
+    GestionarPedidosComponent,
+    TablaPizzasComponent,
+    FormPedidoComponent
   ],
   imports: [
     BrowserModule,

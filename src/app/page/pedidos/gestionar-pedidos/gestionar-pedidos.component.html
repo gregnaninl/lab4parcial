@@ -1,0 +1,48 @@
+  <br><br>
+    <div class="container">
+     <br><br>
+  
+        <div class="row">
+          <div class="col-md-4 order-md-2 mb-4">
+           <!-- agrego la parte de paise-->
+           <app-tabla-pizzas
+           (eventoCargarPizza)="cargarPizzas($event)"
+           >
+           </app-tabla-pizzas>
+          </div>
+          <div class="col-md-8 order-md-1">
+          
+            <div class="container-fluid py-5  bg-light rounded-3">
+              <app-tabla-repartidores 
+              [listado]="listadoDeTablaRepartidores"
+               (eventoRepartidor)= "CargarRepartidor($event)"
+      
+              ></app-tabla-repartidores>
+      
+            
+            </div>
+             <!-- Componente listado actores-->
+            <br><br>
+                   
+
+
+          </div>                 
+        </div>
+      
+        <div *ngIf="nuevoPedido">
+            <app-form-pedido
+            [pedidoParaMostrar]="nuevoPedido"
+            (eventoPedido)= " cargarPedido($event)"
+            >
+
+
+            </app-form-pedido>
+          </div>
+    
+
+
+  
+       
+      </div>
+
+
