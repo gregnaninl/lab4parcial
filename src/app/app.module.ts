@@ -18,6 +18,12 @@ import { RepartidoresComponent } from './page/repartidores/repartidores.componen
 import { TablaRepartidoresComponent } from './page/componente/tabla-repartidores/tabla-repartidores.component';
 import { DetalleRepartidorComponent } from './page/componente/detalle-repartidor/detalle-repartidor.component';
 import { DetallePaisComponent } from './page/componente/detalle-pais/detalle-pais.component';
+import { SalenPizasComponent } from './page/pizas/salen-pizas/salen-pizas.component';
+import { CrearPizaComponent } from './page/componente/crear-piza/crear-piza.component';
+import { ModificarPizaComponent } from './page/componente/modificar-piza/modificar-piza.component';
+import { BorrarPizaComponent } from './page/componente/borrar-piza/borrar-piza.component';
+import { ListarPizzaComponent } from './page/componente/listar-pizza/listar-pizza.component';
+import { FiltroPizzaPipe } from './pipes/filtro-pizza.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,13 @@ import { DetallePaisComponent } from './page/componente/detalle-pais/detalle-pai
     RepartidoresComponent,
     TablaRepartidoresComponent,
     DetalleRepartidorComponent,
-    DetallePaisComponent
+    DetallePaisComponent,
+    SalenPizasComponent,
+    CrearPizaComponent,
+    ModificarPizaComponent,
+    BorrarPizaComponent,
+    ListarPizzaComponent,
+    FiltroPizzaPipe
   ],
   imports: [
     BrowserModule,

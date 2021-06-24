@@ -18,8 +18,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" routerLink="/">inicio</a>
-        </li>
-        
+        </li>        
       </ul>
       
         <ul class="navbar-nav mx-auto" *ngIf="user$ | async as user; else login">
@@ -28,6 +27,9 @@
               </li>
               <li class="nav-item active" *ngIf="user">
                 <a class="nav-link" href="#" routerLink="repartidores">Repartidores</a>
+              </li>
+              <li class="nav-item active" *ngIf="user.email === 'admin@gmail.com'">
+                <a class="nav-link" href="#" routerLink="/piza">Pizza</a>
               </li>
 
 

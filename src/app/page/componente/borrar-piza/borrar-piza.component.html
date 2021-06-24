@@ -1,0 +1,17 @@
+<div class="card mb-4 rounded-3 shadow-sm" >
+    <div class="card-header py-3">
+      <h4 class="my-0 fw-normal">Borrar</h4>
+    </div>
+    <div class="card-body">
+      <div  *ngIf="pizzaParaBorrar">
+        <p>Nombre: {{ pizzaParaBorrar.nombre}}</p>
+        <p>Ing: {{ pizzaParaBorrar.ingredientes}}</p>
+        <p>Precio: $ {{ pizzaParaBorrar.precio}}</p>
+        <p>Peso: {{ pizzaParaBorrar.peso}} Kg.</p>
+        <p *ngIf= "pizzaParaBorrar.terminada"  >Estado: Terminada</p>
+        <p *ngIf= "!pizzaParaBorrar.terminada"  >Estado: Sin terminar</p>
+             
+        <button type="button" class="w-100 btn btn-lg btn-outline-primary" (click)="borrar()">Borrar</button>
+      </div>
+      </div>
+  </div>

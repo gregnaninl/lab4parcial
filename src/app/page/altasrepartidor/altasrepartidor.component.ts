@@ -29,7 +29,7 @@ export class AltasrepartidorComponent implements OnInit {
     this.formularioAlta = this.fb.group({
       'nombre': ['',Validators.required],
       'dni': ['',Validators.required],
-      'edad': ['',Validators.required],
+      'edad': ['',[Validators.required,Validators.min(18),Validators.max(99)]],
       'capacidad': ['',Validators.required],
       'unidad':[''],
       'pais': ['',Validators.required]

@@ -65,6 +65,7 @@ export class LoginComponent implements OnInit {
   private checkUserIsVerified(user: any) {
     if (user.user) {
       this.router.navigate(['/']);
+      localStorage.setItem("usuarioEnLinea",JSON.stringify(user.user));
       console.log("ingresaste correctamente")
     } else if(user.code == "auth/wrong-password" ){
       Swal.fire('Contraseña incorrecta','Revise la contraseña ingresada','error'); 
@@ -73,6 +74,7 @@ export class LoginComponent implements OnInit {
     }else if(user.__zone_symbol__state) {;
       console.log(user);
       this.router.navigate(['/']);
+      localStorage.setItem("usuarioEnLinea",JSON.stringify(user.user));
       console.log("ingresaste correctamente")
       }
     else {;

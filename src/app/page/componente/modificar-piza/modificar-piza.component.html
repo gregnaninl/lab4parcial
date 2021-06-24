@@ -1,0 +1,30 @@
+<div class="card mb-4 rounded-3 shadow-sm">
+    <div class="card-header py-3">
+      <h4 class="my-0 fw-normal">Modificar</h4>
+    </div>
+    <div class="card-body" >
+                   
+        <form  class="needs-validation"  [formGroup]= "formularioAlta"  (ngSubmit)= "Guardar()" *ngIf="pizzaParaMostrar">
+       
+           
+         
+            <p class="form-control" >{{ pizzaParaMostrar .nombre}}</p>
+            <input type="text" class="form-control" id="ingredientes" [(ngModel)]="pizzaParaMostrar.ingredientes"  formControlName='ingredientes'>
+            <small class="invalid" *ngIf="formularioAlta.get('ingredientes')?.errors?.required && formularioAlta.get('ingredientes').touched" >El ingredientes es requerido</small>
+    
+           
+            <input type="number" class="form-control" id="precio" [(ngModel)]="pizzaParaMostrar.precio" formControlName='precio'>
+            <small class="invalid" *ngIf="formularioAlta.get('precio')?.errors?.required && formularioAlta.get('precio').touched" >El precio es requerido</small>
+    
+            
+            <input type="number"  class="form-control" id="peso" [(ngModel)]="pizzaParaMostrar.peso" formControlName='peso'>
+            <small class="invalid" *ngIf="formularioAlta.get('peso')?.errors?.required && formularioAlta.get('peso').touched" >El peso es requerido</small>
+            <small class="invalid" *ngIf="formularioAlta.get('peso')?.errors?.min || formularioAlta.get('peso')?.errors?.max && formularioAlta.get('peso')?.touched" >El peso debe ser entre 500 y 1000 gr.</small>
+            <br>
+    
+          <button type="submit" class="w-100 btn btn-lg btn-outline-primary" [disabled]="formularioAlta.invalid">Modificar</button>
+        </form>
+
+
+     </div>
+  </div>

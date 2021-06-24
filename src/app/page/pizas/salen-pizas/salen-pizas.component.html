@@ -1,0 +1,58 @@
+<body>
+    
+ 
+    
+    <div class="container py-3">
+      <header>
+       
+    
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+          <h1 class="display-4 fw-normal">Salen Pizas</h1>
+          <p class="fs-5 text-muted">Panle de administración de Pizas.</p>
+        </div>
+      </header>
+    
+      <main>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+          <div class="col">
+           <app-crear-piza
+           (eventoAltaPizza)="eventoPiza($event)">
+        </app-crear-piza>
+          </div>
+          <div class="col">
+            <app-modificar-piza
+            [pizzaParaMostrar]="modificarPizza"
+            (eventoModificarPizza)="pizzaModificada($event)"
+            >
+
+            </app-modificar-piza>
+          </div>
+          <div class="col">
+            <app-borrar-piza
+            [pizzaParaBorrar]="PizzaParaBorrar"
+            (eventoBorrarPizza)="borrarPizza($event)"
+            >
+                
+            </app-borrar-piza>
+          </div>
+        </div>
+    
+        <h2 class="display-6 text-center mb-4">Listado de Pizzas</h2>
+    
+        <div class="table-responsive">
+         <app-listar-pizza
+         [listado]="listadoPizzas"
+         (eventoElegirPizza)= "pizzaElegida($event)"
+         (eventoSacarPizza)="sacarPizza($event)"
+            >
+
+         </app-listar-pizza>
+        </div>
+      </main>
+    
+     
+    </div>
+    
+    
+        
+      </body>

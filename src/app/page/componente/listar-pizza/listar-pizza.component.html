@@ -1,0 +1,24 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Ingredientes</th>
+          <th>Peso</th>
+          <th>Precio</th>
+          <th>Accion</th>
+         
+        </tr>
+      </thead>
+    <tbody>
+      <tr *ngFor="let list of listado | filtroPizza " >
+        
+        <td>{{ list.nombre }} &nbsp;</td>
+        <td>{{ list.ingredientes }} </td>
+        <td>{{ list.peso }} &nbsp;</td>
+        <td>{{ list.precio }} &nbsp;</td>
+        <td> <button class="btn btn-secondary" (click)="seleccioneUno(list)"> M </button>&nbsp;
+          <button class="btn btn-secondary" (click)="borrar(list)"> B </button></td>
+    
+      </tr>
+    </tbody>
+  </table>

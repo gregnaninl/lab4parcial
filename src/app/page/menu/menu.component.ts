@@ -18,6 +18,7 @@ export class MenuComponent implements OnInit {
 
   constructor(private loginSvc : LoginService,private router: Router) {
     this.user = localStorage.getItem("usuarioEnLinea");
+    console.log(this.loginSvc.getCurretUser());
 
    }
 
@@ -33,6 +34,7 @@ export class MenuComponent implements OnInit {
     try {
       await this.loginSvc.logout();
       this.router.navigate(['login']);
+      localStorage.clear();
     } catch (error) {
       console.log(error);
     }
@@ -42,6 +44,7 @@ export class MenuComponent implements OnInit {
 
   salir(){
     this.loginSvc.salir();
+    localStorage.clear();
   }
 
 }

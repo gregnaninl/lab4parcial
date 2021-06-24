@@ -32,6 +32,9 @@
                 <div class="col-md-4 mb-3">
                   <label for="edad">Edad</label>
                   <input type="number" class="form-control" id="edad" placeholder="edad" formControlName='edad'>
+                  <small class="invalid" *ngIf="formularioAlta.get('edad')?.errors?.required && formularioAlta.get('edad').touched" >Edad es requerida</small>
+                  <small class="invalid" *ngIf="formularioAlta.get('edad')?.errors?.min || formularioAlta.get('edad')?.errors?.max && formularioAlta.get('edad')?.touched" >La Edad debe ser entre 18 y 99 años</small>
+               
                 </div>
 
                 <div class="col-md-4 mb-3">

@@ -72,7 +72,9 @@ export class LoginService {
       const result = await this.afAuth.signInWithEmailAndPassword(
         email, 
         password);
+        
         return result;
+       
     }
     catch(e){
     console.log(e);

@@ -7,9 +7,6 @@ export class Usuario {
     displayName?: string;
     emailVerified!: boolean;
     password?: string;
-    photoURL?: string;
-   
-   
-        
+    photoURL?: string;       
    
 }
