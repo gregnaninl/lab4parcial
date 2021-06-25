@@ -6,6 +6,7 @@
           <div class="col-md-4 order-md-2 mb-4">
            <!-- agrego la parte de paise-->
            <app-tabla-pizzas
+           [listados]="listados"
            (eventoCargarPizza)="cargarPizzas($event)"
            >
            </app-tabla-pizzas>

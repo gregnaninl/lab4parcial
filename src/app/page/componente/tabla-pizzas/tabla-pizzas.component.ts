@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Piza } from 'src/app/clases/piza';
 import { PizzaService } from 'src/app/servicio/pizza.service';
 
@@ -10,8 +10,10 @@ import { PizzaService } from 'src/app/servicio/pizza.service';
 export class TablaPizzasComponent implements OnInit {
 
   lista : any;
-  listadoPizzas:object;
-
+  todas :any;
+  listadoPizzas:Piza[];
+  
+  @Input() listados : Piza[];
   @Output() eventoCargarPizza: EventEmitter<Piza>= new EventEmitter<Piza>();
   
 
@@ -24,14 +26,24 @@ export class TablaPizzasComponent implements OnInit {
   trarTodo(){
     this.pizzaSvc.traerTodos().valueChanges().subscribe(
     (res)=>{
-      this.listadoPizzas = res;
+      this.todas = res;
+      this.listadoPizzas= this.todas.filter(dato => {
+            
+        return dato.estado== true  ;
+       });;
     }
     );
    // console.log(this.listadoDeTablaPeliculas);
   }
 
   cargarPizza(una  : Piza){
-  this.eventoCargarPizza.emit(una);
+    let indice = this.listados.indexOf(una); // obtenemos el indice
+    console.log(indice);
+  this.listados.splice(indice, 1);
+  //console.log(this.listadoPizzas);
+  this.eventoCargarPizza.emit(una);  
+
+  
   }
 
 }

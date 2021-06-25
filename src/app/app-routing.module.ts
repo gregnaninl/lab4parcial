@@ -5,14 +5,15 @@ import { AltasrepartidorComponent } from './page/altasrepartidor/altasrepartidor
 import { BienvenidaComponent } from './page/bienvenida/bienvenida.component';
 import { LoginComponent } from './page/login/login.component';
 import { RepartidoresComponent } from './page/repartidores/repartidores.component';
+import { UserLoginGuard } from './user-login.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'bienvenida', component: BienvenidaComponent},
-  {path: 'altarepartidor' , component: AltasrepartidorComponent},
-  { path: 'repartidores' , component: RepartidoresComponent},
+  {path: 'altarepartidor' , component: AltasrepartidorComponent, canActivate: [UserLoginGuard]},
+  { path: 'repartidores' , component: RepartidoresComponent, canActivate: [UserLoginGuard]},
   { path: 'piza', loadChildren: () => import('./piza/piza.module').then(m => m.PizaModule) , canActivate: [CanActivateGuard]},
-   { path: 'pedidos', loadChildren: () => import('./pedidos/pedidos.module').then(m => m.PedidosModule) },
+   { path: 'pedidos', loadChildren: () => import('./pedidos/pedidos.module').then(m => m.PedidosModule) ,canActivate: [UserLoginGuard]},
   {path: '', redirectTo:'bienvenida',pathMatch: 'full'},
   {path: '**', component:BienvenidaComponent}
  

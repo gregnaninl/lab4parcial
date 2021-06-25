@@ -4,6 +4,7 @@ import { Piza } from 'src/app/clases/piza';
 import { Repartidor } from 'src/app/clases/repartidor';
 import { EmpleadosService } from 'src/app/servicio/empleados.service';
 import { PedidosService } from 'src/app/servicio/pedidos.service';
+import { PizzaService } from 'src/app/servicio/pizza.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,12 +18,14 @@ export class GestionarPedidosComponent implements OnInit {
   repartidorElegido : Repartidor;
   ListadoPizzasRep : Piza [];
   nuevoPedido : Pedido;
+  listados : Piza[];
 
 
-  constructor( private empleadoSvc : EmpleadosService,private pedidoSvc : PedidosService) { }
+  constructor( private empleadoSvc : EmpleadosService,private pedidoSvc : PedidosService, private pizzaSvc : PizzaService) { }
 
   ngOnInit(): void {
     this.trarTodo();
+    this.trarPisas();
     this.nuevoPedido= new Pedido();
     this.ListadoPizzasRep = new Array();
     this.nuevoPedido.pizzas = new Array();
@@ -33,9 +36,23 @@ export class GestionarPedidosComponent implements OnInit {
       .then((res) => {
      console.log(res);
      this.nuevoPedido=null;
+     this.trarPisas();
      Swal.fire('Correcto','pedido Cargado','success');
      
       }).catch(err => console.log('err', err.message));
+  }
+
+  trarPisas(){
+    this.pizzaSvc.traerTodos().valueChanges().subscribe(
+    (res)=>{
+      this.listados = res;
+      this. listados= this.listados.filter(dato => {
+            
+        return dato.estado== true  ;
+       });;
+    }
+    );
+   // console.log(this.listadoDeTablaPeliculas);
   }
 
   CargarRepartidor(repartidor : Repartidor){
